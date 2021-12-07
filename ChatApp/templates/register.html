@@ -1,0 +1,21 @@
+{% from 'form_helper.html' import mydefaultform %}
+{% extends 'base.html' %}
+
+{% block title %} Register {% endblock %}
+
+{% block content %} 
+<form action="" method="post" novalidate class="mt-5">
+    {{ mydefaultform(form.username, 'Username', autofocus=true, autocomplete='off') }}
+    {{ mydefaultform(form.password, 'Password') }}
+    {{ mydefaultform(form.confirm_password, 'Confirm Password') }}
+
+<div class="text-center">
+    <input type="submit" value="Submit" class="btn btn-primary">
+</div>
+{{ form.csrf_token }}
+
+</form>
+<hr>
+
+<p>Already registered? <a href="{{url_for('login')}}">Login here</a>.</p>
+{% endblock  %}

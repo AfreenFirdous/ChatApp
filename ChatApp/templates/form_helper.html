@@ -1,0 +1,11 @@
+
+{% macro mydefaultform(FormField, placeholdervalue) %}
+<div class="form-group">
+  {{FormField(class_='form-control', placeholder=placeholdervalue, **kwargs) }}
+    <ul>
+        {% for error in FormField.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endmacro %}
